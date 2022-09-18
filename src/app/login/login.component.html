@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-4">
+    <!-- Icon -->
+    <!-- <div class="fadeIn first">
+      <img src="/assets/images/t-como.png" id="icon" alt="User Icon" />
+    </div> -->
+
+    <h4>LOGIN</h4>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <input type="username" id="username" class="form-control" name="username" placeholder="Introduce tu username" [(ngModel)]="form.username" required #username="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
+        Introduce tu username
+      </div>
+
+      <input type="password" id="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+        Introduce tu password (mínimo 6 caracteres)
+      </div>
+
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+
+    <!-- enviar a registro -->
+    <div id="formFooter">
+      <a class="underlineHover" [routerLink]="['/register']">Aun no estás registrado?</a>
+    </div>
+
+  </div>
+</div>
+

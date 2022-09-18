@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-4">
+
+    <h4>REGISTER</h4>
+    <!-- Login Form -->
+    <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <input type="email" id="email" class="form-control" name="email" placeholder="Introduce tu Email" ngModel
+        email="true" required #email="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">
+        Introduce un email valido
+      </div>
+
+      <input type="username" id="username" class="form-control" name="username" placeholder="Introduce tu Username"
+        [(ngModel)]="form.username" required minlength="4" #username="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
+        Introduce un Username valido (mínimo 5 caracteres)
+      </div>
+
+      <input type="password" id="password" class="form-control" [(ngModel)]="form.password" required minlength="6"
+        #password="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+        Introduce tu password (mínimo 6 caracteres)
+      </div>
+
+      <button class="btn btn-primary" type="submit">Sign In</button>
+      <!-- <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted">
+          Login incorrecto
+        </div>
+      </div> -->
+    </form>
+
+    <!-- enviar a login -->
+    <div id="formFooter">
+      <a class="underlineHover" [routerLink]="['/login']">Ya tienes cuenta?</a>
+    </div>
+
+  </div>
+</div>
