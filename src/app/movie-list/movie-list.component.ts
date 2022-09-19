@@ -11,6 +11,7 @@ export class MovieListComponent implements OnInit {
   movies?: any;
   name = '';
 
+
   constructor(private tmdbService: TMDBService) {}
 
   ngOnInit() {

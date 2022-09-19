@@ -10,6 +10,10 @@
       <div class="card-body">
         <h5 class="card-title">{{serie.name | uppercase}}</h5>
         <p class="card-text"><strong>ID</strong>: {{serie.id}}</p>
+        <p class="card-text"><strong>Original Name</strong>: {{serie.originalName}}</p>
+        <p class="card-text"><strong>Overview</strong>: {{serie.overView}}</p>
+        <p class="card-text"><strong>Genres:</strong><span *ngFor="let genre of serie.genres.name">{{genre}}</span></p>
+        <p class="card-text"><strong>First Air Transmition</strong>: {{serie.firstAir}}</p>
         <button class="btn btn-danger" [routerLink]="['/characters',serie.id]">See more</button>
       </div>
     </div>
