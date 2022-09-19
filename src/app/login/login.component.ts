@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   token: any = '';
 
+  isLogin: boolean = false;
+
   form: any = {
     username: null,
     password: null
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
           console.log(this.token);
           window.sessionStorage.setItem(TOKEN, response.request_token);
           window.sessionStorage.setItem(USERNAME, this.form.username);
+          this.isLogin = true;
           window.location.reload()
         },
         error => {
