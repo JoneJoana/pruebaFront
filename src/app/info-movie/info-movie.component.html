@@ -1,1 +1,26 @@
-<p>info-movie works!</p>
+<section class="container">
+  <div class="row">
+    <div class="col">
+      <img src="{{movie.image}}" alt="imagen de {{movie.name}}">
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.name | uppercase }}</h5>
+          <p class="card-text">
+            <strong>Status</strong>: {{movie.status}}
+            <br>
+            <strong>Species</strong>: {{movie.species}}
+            <br>
+            <strong>Gender</strong>: {{movie.gender}}
+            <br>
+            <strong>Origin</strong>: {{movie.origin}}
+            <br>
+            <strong>Location</strong>: {{movie.location}}
+          </p>
+          <button class="btn btn-danger" (click)="onBack()">Back</button> &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

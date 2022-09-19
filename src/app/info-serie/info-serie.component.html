@@ -1,1 +1,27 @@
-<p>info-serie works!</p>
+<section class="container">
+  <div class="row">
+    <div class="col">
+      <img src="{{serie.image}}" alt="imagen de {{serie.name}}">
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{serie.name | uppercase }}</h5>
+          <p class="card-text">
+            <strong>Status</strong>: {{serie.status}}
+            <br>
+            <strong>Species</strong>: {{serie.species}}
+            <br>
+            <strong>Gender</strong>: {{serie.gender}}
+            <br>
+            <strong>Origin</strong>: {{serie.origin}}
+            <br>
+            <strong>Location</strong>: {{serie.location}}
+          </p>
+          <button class="btn btn-danger" (click)="onBack()">Back</button> &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
