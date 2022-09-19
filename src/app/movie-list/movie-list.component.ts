@@ -12,6 +12,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
   name = '';
 
+  iterableLogList = Object.keys(this.movies);
 
   constructor(private tmdbService: TMDBService) {}
 
