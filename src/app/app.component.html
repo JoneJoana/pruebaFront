@@ -2,7 +2,7 @@
 <header class="header_section">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navegacion">
     <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['home']" routerLinkActive="router-link-active">Prueba</a>
+      <a class="navbar-brand" [routerLink]="['home']" routerLinkActive="router-link-active">TMDB</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,24 +10,24 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLogin">
           <li class="nav-item">
             <a class="nav-link active" [routerLink]="['home']" routerLinkActive="router-link-active">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/register']">Register</a>
+            <a class="nav-link" [routerLink]="['/movies']">Movies</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/series']">Series</a>
+          </li>
         </ul>
         <div class="d-flex">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="!isLogin">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/login']">Login</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLogin">
-            <li class="nav-item">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" *ngIf="isLogin">
               <a class="nav-link" (click)="logout()">LogOut</a>
+            </li>
+            <li class="nav-item"  *ngIf="!isLogin">
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
             </li>
           </ul>
         </div>

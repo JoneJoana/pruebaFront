@@ -9,12 +9,20 @@ import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { SeriesListComponent } from './series-list/series-list.component';
+import { InfoMovieComponent } from './info-movie/info-movie.component';
+import { InfoSerieComponent } from './info-serie/info-serie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MovieListComponent,
+    SeriesListComponent,
+    InfoMovieComponent,
+    InfoSerieComponent
   ],
   imports: [
     BrowserModule,
