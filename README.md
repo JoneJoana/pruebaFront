@@ -4,7 +4,10 @@
 ```
 https://main.d2hvzjtgoshjno.amplifyapp.com/
 ```
-
+# EXPLICACION
+Si que hace login a la api (en console se puede apreciar ya que hay varios console.log para confirmar que los datos son correctos), pero no he podido implementar correctamente el traspaso de datos entre componentes. El navbar está en app.component, que es donde controlaba que se mostraba segun isLogin o no, pero dado
+que es en el componente login donde se efectua el login como tal, app.component no esta recibiendo ese cambio de estado. Con logout, pasa lo mimo. 
+Por otro lado falla al querer mostrar los elementos, los recupera bien de la api (se puede apreciar en consola) pero dado que devuelve un objeto, en vez de array, no es iterable por tanto no muestra los datos correctamente. 
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
