@@ -32,7 +32,7 @@ export class MovieListComponent implements OnInit {
 
 
   searchName(): void {
-    this.tmdbService.findByName(this.name)
+    this.tmdbService.findMovieByName(this.name)
       .subscribe(
         data => {
           this.movies = data;

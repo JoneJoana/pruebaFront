@@ -32,7 +32,7 @@ export class SeriesListComponent implements OnInit {
 
 
   searchName(): void {
-    this.tmdbService.findByName(this.name)
+    this.tmdbService.findSerieByName(this.name)
       .subscribe(
         data => {
           this.characters = data;
