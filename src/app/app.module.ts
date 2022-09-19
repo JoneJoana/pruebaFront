@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
+//import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SeriesListComponent } from './series-list/series-list.component';
@@ -30,7 +30,7 @@ import { InfoSerieComponent } from './info-serie/info-serie.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

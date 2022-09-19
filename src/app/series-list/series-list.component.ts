@@ -14,14 +14,14 @@ export class SeriesListComponent implements OnInit {
   constructor(private tmdbService: TMDBService) {}
 
   ngOnInit() {
-    //this.loadSeries();
+    this.loadSeries();
   }
 
-  /* loadSeries(): void {
+  loadSeries(): void {
     this.tmdbService.getSeries()
       .subscribe(
         (response) => {
-          this.characters = response;
+          this.series = response;
           console.log(response);
         },
         (error) => {
@@ -35,12 +35,12 @@ export class SeriesListComponent implements OnInit {
     this.tmdbService.findSerieByName(this.name)
       .subscribe(
         data => {
-          this.characters = data;
+          this.series = data;
           console.log(data);
         },
         error => {
           console.log(error + 'error searchName')
         }
       );
-  } */
+  }
 }

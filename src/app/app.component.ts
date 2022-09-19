@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TOKEN, ROL, ROL_ADMIN } from './Constants';
+import { TOKEN } from './Constants';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +10,15 @@ import { TOKEN, ROL, ROL_ADMIN } from './Constants';
 export class AppComponent {
   title = 'pruebaFront';
 
-  isLogin = true;
-  logAdmin = false;
+  isLogin = false;
 
   constructor( private router: Router) {}
 
   ngOnInit(): void {
+    console.log(window.sessionStorage.getItem(TOKEN))
     if(window.sessionStorage.getItem(TOKEN)){
       console.log("logged in")
       this.isLogin = true
-      if(window.sessionStorage.getItem(ROL) == ROL_ADMIN){
-        console.log("isAdmin")
-        this.logAdmin = true
-      }
     }
 
   }
@@ -30,7 +26,6 @@ export class AppComponent {
   logout(): void{
     window.sessionStorage.clear()
     this.isLogin = false;
-    this.logAdmin = false;
     this.router.navigate(['/home']);
   }
 

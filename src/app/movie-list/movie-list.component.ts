@@ -15,18 +15,18 @@ export class MovieListComponent implements OnInit {
   constructor(private tmdbService: TMDBService) {}
 
   ngOnInit() {
-    //this.loadMovies();
+    this.loadMovies();
   }
 
-  /* loadMovies(): void {
-    this.tmdbService.getMoviess()
+  loadMovies(): void {
+    this.tmdbService.getMovies()
       .subscribe(
         (response) => {
           this.movies = response;
           console.log(response);
         },
         (error) => {
-          console.log('Error al cargar datos getCharacters' + error);
+          console.log('Error al cargar datos getMovies' + error);
         }
       );
   }
@@ -43,5 +43,5 @@ export class MovieListComponent implements OnInit {
           console.log(error + 'error searchName')
         }
       );
-  } */
+  }
 }

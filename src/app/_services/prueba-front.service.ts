@@ -1,77 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Movie } from '../models/movie.model';
+import { Serie } from '../models/serie.model';
 
-const BASE = 'https://tch-db.herokuapp.com';
-const headers = {
-  headers: new HttpHeaders(
-    { "authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjI4MzYxNTAsImlzcyI6ImFkbWluIiwic3ViIjoiQWRtaW4xIiwiZXhwIjoxNjYzNzAwMTUwfQ.o6jqDky5fDdWvY63G9H1F5jV99MPSIHNYwFcygvWscxOt6dI7qIvviS8-SmVy4UsUPdfh8GXCxcnJNtJN0XQuQ" })
-};
-
-@Injectable({
-  providedIn: 'root'
-})
-export class OrdersService {
-
-  constructor(private http: HttpClient) { }
-
-  gerOrders(): Observable<any> {
-    return this.http.get(BASE+"/api/orders", headers);
-  }
-
-  gerOrdersByUser(user:string): Observable<any> {
-    return this.http.get(BASE+"/api/orders/user/"+user, headers);
-  }
-
-  deleteOrder(id: any): Observable<any> {
-    return this.http.delete(BASE+"/api/orders/delete/"+id, headers);
-  }
-
-  updateOrder(order: any): Observable<any> {
-    return this.http.put(BASE+"/api/orders/update", order, headers);
-  }
-
-}
+const BASE = 'https://api.themoviedb.org/3/';
+const API_KEY = 'cf5b7083b6fd3be488d414abc816e750';
 
 @Injectable({
   providedIn: 'root'
 })
- export class DishesService {
+export class TMDBService {
 
   constructor(private http: HttpClient) { }
 
-  getDishes(): Observable<any> {
-    return this.http.get(BASE+"/api/dishes", headers);
+
+  getMovies(): Observable<Movie[]>{
+    return this.http.get<Movie[]>(BASE+"movie/popular?api_key="+API_KEY);
   }
 
-  postDish(newDish: any): Observable<any> {
-    return this.http.post(BASE+"/api/dishes/add", newDish, headers);
+  getSeries(): Observable<Serie[]>{
+    return this.http.get<Serie[]>(BASE+"tv/popular?api_key="+API_KEY);
   }
 
-  putDish(dish: any): Observable<any> {
-    return this.http.put(BASE+"/api/dishes/update", dish, headers);
+  getMovieByID(id: any): Observable<Movie>{
+    return this.http.get<Movie>(`${BASE}/${id}`+"?api_key="+API_KEY);
   }
 
-  deleteDish(id: Number): Observable<any> {
-    return this.http.delete(BASE+"/api/dishes/delete/"+id, headers);
+  getSerieByID(id: any): Observable<Serie>{
+    return this.http.get<Serie>(`${BASE}/${id}`+"?api_key="+API_KEY);
   }
 
-  /* getCategoriesDish(id: Number): Observable<any>{
-    return this.http.get(BASE+"/api/dishes/"+id+"/categories", headers);
-  } */
+  findMovieByName(name: string): Observable<Movie[]>{
+    return this.http.get<Movie[]>(`${BASE}?name=${name}`+"?api_key="+API_KEY);
+  }
 
-}
-
-
-@Injectable({
-  providedIn: 'root'
-})
-export class CategoriesService {
-
-  constructor(private http: HttpClient) { }
-
-  getCategories(): Observable<any> {
-    return this.http.get(BASE+"/api/categories", headers);
+  findSerieByName(name: string): Observable<Serie[]>{
+    return this.http.get<Serie[]>(`${BASE}?name=${name}`+"?api_key="+API_KEY);
   }
 
 }
+
