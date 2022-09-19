@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
           window.sessionStorage.setItem(TOKEN, response.request_token);
           window.sessionStorage.setItem(USERNAME, this.form.username);
           this.isLogin = true;
-          window.location.reload()
         },
         error => {
           // gestionar error
