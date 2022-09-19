@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../models/movie.model';
 import { TMDBService } from '../_services/prueba-front.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TMDBService } from '../_services/prueba-front.service';
 })
 export class MovieListComponent implements OnInit {
 
-  movies?: any;
+  movies: Movie[] = [];
   name = '';
 
 

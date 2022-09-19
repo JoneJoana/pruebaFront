@@ -3,7 +3,7 @@ export interface Movie {
   title:string;
   originalTitle:string;
   overview:string;
-  genres:any[];
+  genres:any;
   release:string;
   imagen?:string;
 }
