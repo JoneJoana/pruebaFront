@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url('src/assets/images/El_show_de_Truman-391445627-large.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
