@@ -1,0 +1,23 @@
+h2{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #0d253f;
+}
+p{
+  color: #01b4e4;
+  text-align: justify;
+}
+div{
+  padding: 15px;
+}
+.content{
+  margin-top: 15px;
+  background-color: rgba(255, 255, 255, 0.676);
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 0.1px;
+  border-radius: 2em;
+}
+a{
+   color: #90cea1;
+}

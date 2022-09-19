@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(window.sessionStorage.getItem(TOKEN))
-      this.router.navigate(['/home']);
-
+      this.router.navigate(['/login']); //o a home?
   }
 
   onSubmit(): void{
@@ -31,7 +30,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.username, this.form.password)
       .subscribe(
         response => {
-
           window.sessionStorage.setItem(TOKEN, response.token);
           window.sessionStorage.setItem(USERNAME, this.form.username);
           console.log(window.sessionStorage.getItem(TOKEN))
@@ -42,6 +40,7 @@ export class LoginComponent implements OnInit {
           // gestionar error
           console.log(error)
         });
+    this.router.navigate(['/home']);
   }
 
   getRol() {
