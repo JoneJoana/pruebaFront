@@ -1,1 +1,18 @@
-<p>movie-list works!</p>
+<div class="row">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search by name"
+      aria-label="Search" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+    <button class="btn btn-outline-dark" type="submit" >Search</button> <!-- (click)="searchName()" -->
+  </form>
+  <div class="columna" class="col-sm-6 col-md-3" *ngFor="let movie of movies;">
+    <div class="card">
+      <img src="{{movie.image}}" height="150px" class="card-img-top" alt="imagen del character">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.name | uppercase}}</h5>
+        <p class="card-text"><strong>ID</strong>: {{movie.id}}</p>
+        <button class="btn btn-danger" [routerLink]="['/characters',movie.id]">See more</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TMDBService } from '../_services/prueba-front.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -7,9 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
-  constructor() { }
+  movies?: any;
+  name = '';
 
-  ngOnInit(): void {
+  constructor(private tmdbService: TMDBService) {}
+
+  ngOnInit() {
+    //this.loadMovies();
   }
 
+  /* loadMovies(): void {
+    this.tmdbService.getMoviess()
+      .subscribe(
+        (response) => {
+          this.movies = response;
+          console.log(response);
+        },
+        (error) => {
+          console.log('Error al cargar datos getCharacters' + error);
+        }
+      );
+  }
+
+
+  searchName(): void {
+    this.tmdbService.findByName(this.name)
+      .subscribe(
+        data => {
+          this.movies = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error + 'error searchName')
+        }
+      );
+  } */
 }
